@@ -1,0 +1,11 @@
+apache-airflow-providers-celery
+apache-airflow-providers-postgres
+apache-airflow-providers-docker
+apache-airflow-providers-fab
+google-cloud-storage
+pandas
+# polars
+pyarrow
+dbt-core
+dbt-bigquery
+faker
