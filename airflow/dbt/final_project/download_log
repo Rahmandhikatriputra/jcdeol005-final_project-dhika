@@ -1,0 +1,3 @@
+2025-08-11 15:40:06,261 - [INFO] - [MainThread] - Validating URL https://data.cms.gov/sites/default/files/2023-04/bf7aac0e-3ba3-4e7e-9463-073316a17d8a/beneficiary_2018.csv
+2025-08-11 15:40:07,527 - [INFO] - [MainThread] - The URL is working! Proceed to download 'beneficiary_2018.csv'
+2025-08-11 15:40:09,284 - [INFO] - [MainThread] - file 'beneficiary_2018.csv' has succesfully downloaded :)

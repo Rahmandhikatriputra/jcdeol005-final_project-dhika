@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw_data
+    schema: jcdeol005_finalproject_dhika_raw
+    description: schema for the Purwadhika final project
+    tables:
+      - name: raw_anz_dataset
+        description: raw dataset from ANZ bank, representing bank transaction each row
