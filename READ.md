@@ -2,7 +2,7 @@
 
 ## 1. Background
 ### 1.1 Case Project
-![ANZ Bank](.\documentation\Picture1.png)
+![ANZ Bank](./documentation/Picture1.png)
 
 ANZ Bank is a private Australian bank with thousands of customers. In this project, ANZ Bank had a dataset in the form of a table that recorded daily customer transactions. They wanted to learn more about customer behavior while using ANZ services. Furthermore, they wanted this information to be accessible at any time, without requiring a time limit on request.
 ### 1.2 Solution
