@@ -2,13 +2,13 @@
 
 ## 1. Background
 ### 1.1 Case Project
-![ANZ Bank](.\documentation\Picture1.png)
+![ANZ Bank](./documentation/Picture1.png)
 
 ANZ Bank is a private Australian bank with thousands of customers. In this project, ANZ Bank had a dataset in the form of a table that recorded daily customer transactions. They wanted to learn more about customer behavior while using ANZ services. Furthermore, they wanted this information to be accessible at any time, without requiring a time limit on request.
 ### 1.2 Solution
 To address this issue, it is necessary to implement a system that can migrate and transform raw data (in this case, ANZ bank customer transaction data) into a platform that can then be accessed online at any time. In this case, a data engineer can create a data pipeline program as a solution.
 
-![data engineer](.\documentation\Picture2.png)
+![data engineer](./documentation/Picture2.png)
 
 A data engineer is someone who designs and builds a system to manage and process data, which is then used by relevant users for further analysis. One such system is a data pipeline program, which aims to **extract** data from the source, **transforms** it, and **loads** the processed data in a database, which will then be used by the end user.
 For this case, **batch processing** concept will be used to solve this problem. In batch processing, data production is done in batches with a time lag between each batch. Examples: daily retail sales reports, monthly electricity bill reports, etc. 
@@ -34,7 +34,7 @@ To record work history during the program development process. For this, we use 
 ## 3. Data Flow Scenario
 There are at least 2 main scenario in this case:
 
-![data flow scenario](.\documentation\2025-09-26_JCDEOL005_FinalProject_Dhika.png)
+![data flow scenario](./documentation/2025-09-26_JCDEOL005_FinalProject_Dhika.png)
 
 Data production: Transaction activities that generate data, then the resulting data is stored in the data lake.
 Data pipeline: Data sources from the data lake are loaded into the data warehouse. Within the data warehouse, the data goes through three transformation stages:
@@ -82,14 +82,14 @@ This section will explain the form and structure of the dataset used and created
 The data source used comes from ANZ Bank transaction data, a private Australian bank. The data records every transaction (money in and out) from a customer's account to a merchant, and also stores supporting data for each transaction, both for the customer and the merchant.
 
 ### 5.2 Model Table
-![data flow scenario](.\documentation\Table_model.jpg)
+![data flow scenario](./documentation/Table_model.jpg)
 For this final project, the case used to create the model table is transaction history data. This model table will detail each transaction recorded in the ANZ bank dataset. At this stage, the model will be split into one fact table and two dimension tables:
 - **fact table**: records each transaction and supporting information recorded in the dataset
 - **dim_customer**: records each customer who uses ANZ bank to conduct banking transactions
 - **dim_merchant**: records each business person/merchant who transacts with an ANZ bank customer
 
 ### 5.3 Mart Table
-![data flow scenario](.\documentation\table_mart.png)
+![data flow scenario](./documentation/table_mart.png)
 Based on the Model Table, we can separate into 5 mart tables for the solution of this case:
 - **Mart_payment_by_age**: stores customer payment transaction data based on age per month.
 - **Mart_total_transaction_by_desc**: stores customer payment transaction data based on payment type per day.
@@ -100,21 +100,21 @@ Based on the Model Table, we can separate into 5 mart tables for the solution of
 ## 6. Directed Acyclic Graph (DAG) Structure
 A directed acyclic graph (DAG) is a graph in Airflow that represents the flow of tasks/programs to be executed in Airflow. In this section, will explain the program's execution flow structure. There are 2 DAGs for this final project:
 ### 6.1 Generate Dummy Data
-![data flow scenario](.\documentation\generate_dummy_data.png)
+![data flow scenario](./documentation/generate_dummy_data.png)
 In general, the DAG Generate Dummy Data will:
 - data_source_generate: Create 500-1,000 rows of dummy data that will be generated into a .csv file
 - data_source_ingestion: Insert the .csv file into Google Cloud Storage
 - delete_files: Delete the .csv file on the local machine
 
 ### 6.2 ETL process
-![data flow scenario](.\documentation\etl_process.png)
+![data flow scenario](./documentation/etl_process.png)
 In general, this DAG ETL process will:
 - Create_table: Checks whether the schema and table you want to use already exist in BigQuery. If the schema and table, or one or both, don't exist, the missing schema and table will be created first. If they already exist, this step will be skipped.
 - Insert_raw_data: Inserts data from a .csv file in Google Cloud Storage into the raw data table in BigQuery.
 - Transform_process: Executes the Data Build Tool (DBT) program, which will transform and create the Staging table, model, and mart.
 
 ## 7. Dashboard Visualization Result
-![data flow scenario](.\documentation\dashboard.jpg)
+![data flow scenario](./documentation/dashboard.jpg)
 In general, this visualization illustrates customer behavior when using transaction services (both payments and deposits) at ANZ Bank. The summarized information includes:
 - Proportion of payment types used by customers
 - Profile of ANZ Bank customer population by location of residence
